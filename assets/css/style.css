@@ -1,21 +1,41 @@
-* {
-    box-sizing: border-box;
+body {
+    background: aliceblue;
 }
 
-.container {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+#header{
+    width: 100%;
+    text-align:center;
+    padding-bottom: 15px;
 }
 
-.game-window {
-    width: 50%;
-    height: 50%;
-    top: 25%;
+img{
+    display:inline-block;
+    height: 200px;
     margin: 0 auto;
-    position: relative;
-    background:orange;
-    text-align: center;
+}
+
+.choice:hover {
+    background-color: aliceblue;
+    color: aquamarine;
+    padding: 5px;
+}
+
+#game {
+    font-weight: bolder;
+}
+
+#question {
+    font-weight: 500;
+}
+
+#answers {
+    font-weight: 300;
+}
+
+#gif {
+    padding-top: 15px;
+}
+
+#skipped {
+    padding-bottom: 15px;
 }

@@ -6,16 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="game-window">
+    <!-- Header Container -->
+    <header id="header">
             <h1>Trivia Game</h1>
-            <div class="game"></div>
+            <img src="assets/images/banner.jpg" alt="Trivia Banner" id="banner">
+        </header>
+        
+        <!-- Game Container -->
+        <div class="container">
+            <div class="row" id="game">
+                <div class="col-md-12 text-center">
+    
+                    <!-- Start Screen -->
+                    <div id="start">
+                        <button class='btn-lg btn btn-outline-primary' id='startBtn'>Let's Go!</button>
+                    </div>
+    
+                    <!-- All Screens After Start -->
+                    <div id="timer"></div>
+                    <div id="message"></div>
+    
+                    <!-- Trivia Screen -->
+                    <div id="question"></div>
+                    <div id="answers"></div>
+    
+                    <!-- Response Screen -->
+                    <div id="feedback"></div>
+                    <div id="gif"></div>
+    
+                    <!-- End Screen -->
+                    <div id="correct"></div>
+                    <div id="incorrect"></div>
+                    <div id="skipped"></div>
+                    <!-- <button class='btn-lg btn btn-outline-primary' id='resetBtn'>Let's Go Again!</button> -->
+    
+                </div>
+            </div>
         </div>
-    </div>
+
     <script src="assets/javascript/game.js"></script>
 </body>
 </html>
