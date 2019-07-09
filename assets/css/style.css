@@ -18,6 +18,11 @@ img{
     background-color: aliceblue;
     color: aquamarine;
     padding: 5px;
+    cursor: pointer;
+}
+
+.choice {
+    padding: 5px;
 }
 
 #game {
@@ -26,6 +31,7 @@ img{
 
 #question {
     font-weight: 500;
+    padding-bottom: 15px;
 }
 
 #answers {

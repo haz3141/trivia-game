@@ -38,14 +38,9 @@ let game = {
         done: "Your Score!"
     },
 
-    start: () => {
-            $('#startBtn').toggle();
-            game.askTrivia();
-    },
-
     timer: () => {
         seconds = 15;
-        $("#timer").html("<p>Time Remaining: " + seconds + "</h3>");
+        $("#timer").html("<p>Time Remaining: " + seconds + "</h3>"); //first second of the timer    
         //timer spindown
         timeIndex = setInterval(game.countdown, 1000);
     },
@@ -90,6 +85,8 @@ let game = {
     },
 
     askTrivia: () => {
+
+        $('#startBtn').hide();
         $("#feedback").empty();
         $("#message").empty();
         $("#gif").empty();
@@ -130,15 +127,22 @@ let game = {
 
     restart: () => {
         $("#resetBtn").toggle();
+        $("#message").empty();
+        $("#correct").empty();
+        $("#incorrect").empty();
+        $("#skipped").empty();
         game.correct = 0;
         game.incorrect = 0;
         game.skipped = 0;
         game.currentTrivia = 0;
+        game.responded = false;
+        game.askTrivia();
     }
 }
 
 // Actual start of the game
-$('#startBtn').click(() => game.start());
+$('#startBtn').click(() => game.askTrivia());
+
 $('#resetBtn').click(() => game.restart());
 
 // Pulled the click function out of the object to better handle 'this'
