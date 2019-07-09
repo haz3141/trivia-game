@@ -39,3 +39,7 @@ img{
 #skipped {
     padding-bottom: 15px;
 }
+
+#resetBtn {
+    display: none;
+}
