@@ -20,6 +20,48 @@ const trivia = [{
     answer: "Woodstock"
 }];
 
+let timeIndex;
+
 let game = {
 
+    currentTrivia: 0,
+    seconds: 15,
+
+    start: () => {
+        
+            // Hide Start Button
+            $('#startBtn').toggle();
+
+            // Display Question
+            $('#question').html(trivia[game.currentTrivia].question);
+
+            // Display Choices
+            trivia[0].choices.forEach((choice, index) => {
+                //Build choice div to display
+                let choices = $('<div>');
+                choices.text(choice);
+                choices.attr({"data-index": index});
+                choices.addClass("choice");
+                //Append Choices
+                $('#answers').append(choices);
+            });
+
+            // Start Timer
+            game.timer();
+
+    },
+
+    timer: () => {
+        seconds = 15;
+        $("#timer").html("<p>Time Remaining: " + seconds + "</h3>");
+        //timer spindown
+        timeIndex = setInterval(game.countdown, 1000);
+    },
+
+    countdown: () => {
+        seconds--;
+        $("#timer").html("<p>Time Remaining: " + seconds + "</h3>");
+    }
 }
+
+$('#startBtn').click(() => game.start());
