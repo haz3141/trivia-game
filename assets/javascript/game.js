@@ -1,26 +1,30 @@
 // import $ from 'jquery';
 
-
 const trivia = [{
-    question: "Which molecule has been referred to as the 'Spirit Molecule' for its ability to induce intense mystical experiences?",
-    choices: ["N,N-Dimethyltryptamine", "Lysergic acid diethylamide", "Tetrahydrocannabinol", "3,4-Methylenedioxymethamphetamine"],
-    answer: 0   
+    question: "How long does it take for the Moon to complete its phases?",
+    choices: ["Twenty-nine and one half days", "Twenty-eight days", "Twenty-seven days", "Twenty-eight and one half days"],
+    answer: 0,
+    gif: 'assets/images/moon.webp'
 },{
-    question: "Who is the 'Father of LSD' & author of 'LSD: My Problem Child'?",
-    choices: ["Timothy Leary", "Alexander Shulgin", "William Leonard Pickard", "Albert Hoffman"],
-    answer: 3
+    question: "What is the term for the science of timekeeping?",
+    choices: ["Quantum Mechanics", "Astrology", "General Relativity", "Horology"],
+    answer: 3,
+    gif: 'assets/images/time.gif'
 },{
-    question: "Which naturally occuring psychedelic was discovered in 1956 and had its active molecule isolated in 1958 by Albert Hoffman?",
-    choices: ["Ayuhasca", "Psilocybe Cubensis", "Peyote", "Bufo Alvarius Toad Venom"],
-    answer: 1
+    question: "A Jiffy is usually used to indicate a very short period of time, but it is formally defined in the fields of Physics and Chemistry as the time required for light to travel a centimeter. Also known as a light centimeter, a jiffy is equal to about?",
+    choices: ["23.3444 picoseconds", "33.3564 picoseconds", "33.3564 milliseconds", "23.3444 milliseconds"],
+    answer: 1,
+    gif: 'assets/images/light.webp'
 },{
-    question: "Which is a quote from 'Fear and Loathing in Las Vegas'?",
-    choices: ["'Frankly, my dear, I don't give a damn.'", "'I'm as mad as hell, and I'm not going to take this anymore!'", "'We can't stop here, this is bat country!'", "'You're gonna need a bigger boat.'"],
-    answer: 2
+    question: "What is an hourglass symbolic of?",
+    choices: ["Flow of Time", "Infinity", "Existence is Fleeting", "Time Travel"],
+    answer: 2,
+    gif: 'assets/images/fleet.gif'
 },{
-    question: "Which 1969 music festival was host to over 500,000 attendees?",
-    choices: ["Woodstock", "Burning Man", "Coachella", "Bonnaroo"],
-    answer: 0
+    question: "In the movie Back to the Future the characters would time travel by going 88 miles per hour in what type of car?",
+    choices: ["DeLorean", "Porsche", "Ford", "VW Bus"],
+    answer: 0,
+    gif: 'assets/images/delorean.webp'
 }];
 
 let timeIndex;
@@ -41,7 +45,6 @@ let game = {
     timer: () => {
         seconds = 15;
         $("#timer").html("<p>Time Remaining: " + seconds + "</h3>"); //first second of the timer    
-        //timer spindown
         timeIndex = setInterval(game.countdown, 1000);
     },
 
@@ -61,6 +64,10 @@ let game = {
         $("#answers").empty();
 
         let correctChoice = trivia[game.currentTrivia].answer;
+
+        let git = $('<img>');
+        $(git).attr('src', trivia[game.currentTrivia].gif);
+        $('#gif').html(git);
 
         if (game.userChoice === correctChoice && game.responded === true) {
             game.correct++;
@@ -85,7 +92,6 @@ let game = {
     },
 
     askTrivia: () => {
-
         $('#startBtn').hide();
         $("#feedback").empty();
         $("#message").empty();
@@ -101,7 +107,6 @@ let game = {
             choices.text(choice);
             choices.attr({'data-index': index});
             choices.addClass("choice");
-            //Append Choices
             $('#answers').append(choices);
         });
 
@@ -111,13 +116,11 @@ let game = {
     },
 
     score: () => {
-        //Empty Divs
         $('#timer').empty();
         $('#message').empty();
         $("#feedback").empty();
         $("#gif").empty();
 
-        //Populate Divs
         $("#message").text(game.messages.done);
         $("#correct").text("Correct: " + game.correct);
         $("#incorrect").text("Incorrect: " + game.incorrect);
